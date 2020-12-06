@@ -1,9 +1,10 @@
 .container {
   margin: 5px auto;
-  border: 2px solid #ccc;
+  border: 2px solid rgb(22, 53, 189);
   border-radius: 10px;
-  max-width: 600px;
+  max-width: 350px;
   padding: 10px;
+  background: hsl(240, 16%, 91%);
 }
 header {
   background: #5851ff;
