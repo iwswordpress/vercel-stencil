@@ -14,6 +14,11 @@ export namespace Components {
     }
     interface AppRoot {
     }
+    interface IwsStockFinder {
+    }
+    interface IwsStockPrice {
+        "stockSymbol": string;
+    }
     interface IwsTest {
         /**
           * The first name
@@ -21,11 +26,6 @@ export namespace Components {
         "app": string;
     }
     interface UcSpinner {
-    }
-    interface UcStockFinder {
-    }
-    interface UcStockPrice {
-        "stockSymbol": string;
     }
 }
 declare global {
@@ -47,6 +47,18 @@ declare global {
         prototype: HTMLAppRootElement;
         new (): HTMLAppRootElement;
     };
+    interface HTMLIwsStockFinderElement extends Components.IwsStockFinder, HTMLStencilElement {
+    }
+    var HTMLIwsStockFinderElement: {
+        prototype: HTMLIwsStockFinderElement;
+        new (): HTMLIwsStockFinderElement;
+    };
+    interface HTMLIwsStockPriceElement extends Components.IwsStockPrice, HTMLStencilElement {
+    }
+    var HTMLIwsStockPriceElement: {
+        prototype: HTMLIwsStockPriceElement;
+        new (): HTMLIwsStockPriceElement;
+    };
     interface HTMLIwsTestElement extends Components.IwsTest, HTMLStencilElement {
     }
     var HTMLIwsTestElement: {
@@ -59,26 +71,14 @@ declare global {
         prototype: HTMLUcSpinnerElement;
         new (): HTMLUcSpinnerElement;
     };
-    interface HTMLUcStockFinderElement extends Components.UcStockFinder, HTMLStencilElement {
-    }
-    var HTMLUcStockFinderElement: {
-        prototype: HTMLUcStockFinderElement;
-        new (): HTMLUcStockFinderElement;
-    };
-    interface HTMLUcStockPriceElement extends Components.UcStockPrice, HTMLStencilElement {
-    }
-    var HTMLUcStockPriceElement: {
-        prototype: HTMLUcStockPriceElement;
-        new (): HTMLUcStockPriceElement;
-    };
     interface HTMLElementTagNameMap {
         "app-home": HTMLAppHomeElement;
         "app-profile": HTMLAppProfileElement;
         "app-root": HTMLAppRootElement;
+        "iws-stock-finder": HTMLIwsStockFinderElement;
+        "iws-stock-price": HTMLIwsStockPriceElement;
         "iws-test": HTMLIwsTestElement;
         "uc-spinner": HTMLUcSpinnerElement;
-        "uc-stock-finder": HTMLUcStockFinderElement;
-        "uc-stock-price": HTMLUcStockPriceElement;
     }
 }
 declare namespace LocalJSX {
@@ -89,6 +89,12 @@ declare namespace LocalJSX {
     }
     interface AppRoot {
     }
+    interface IwsStockFinder {
+        "onUcSymbolSelected"?: (event: CustomEvent<string>) => void;
+    }
+    interface IwsStockPrice {
+        "stockSymbol"?: string;
+    }
     interface IwsTest {
         /**
           * The first name
@@ -97,20 +103,14 @@ declare namespace LocalJSX {
     }
     interface UcSpinner {
     }
-    interface UcStockFinder {
-        "onUcSymbolSelected"?: (event: CustomEvent<string>) => void;
-    }
-    interface UcStockPrice {
-        "stockSymbol"?: string;
-    }
     interface IntrinsicElements {
         "app-home": AppHome;
         "app-profile": AppProfile;
         "app-root": AppRoot;
+        "iws-stock-finder": IwsStockFinder;
+        "iws-stock-price": IwsStockPrice;
         "iws-test": IwsTest;
         "uc-spinner": UcSpinner;
-        "uc-stock-finder": UcStockFinder;
-        "uc-stock-price": UcStockPrice;
     }
 }
 export { LocalJSX as JSX };
@@ -120,10 +120,10 @@ declare module "@stencil/core" {
             "app-home": LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
             "app-profile": LocalJSX.AppProfile & JSXBase.HTMLAttributes<HTMLAppProfileElement>;
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
+            "iws-stock-finder": LocalJSX.IwsStockFinder & JSXBase.HTMLAttributes<HTMLIwsStockFinderElement>;
+            "iws-stock-price": LocalJSX.IwsStockPrice & JSXBase.HTMLAttributes<HTMLIwsStockPriceElement>;
             "iws-test": LocalJSX.IwsTest & JSXBase.HTMLAttributes<HTMLIwsTestElement>;
             "uc-spinner": LocalJSX.UcSpinner & JSXBase.HTMLAttributes<HTMLUcSpinnerElement>;
-            "uc-stock-finder": LocalJSX.UcStockFinder & JSXBase.HTMLAttributes<HTMLUcStockFinderElement>;
-            "uc-stock-price": LocalJSX.UcStockPrice & JSXBase.HTMLAttributes<HTMLUcStockPriceElement>;
         }
     }
 }

@@ -10,8 +10,8 @@ export class AppHome {
     return (
       <div class="app-home">
         <h1>TEST WITH WEB COMPONENTS</h1>
-        <uc-stock-price stock-symbol="ORCL"></uc-stock-price>
-        <uc-stock-finder />
+        <iws-stock-price stock-symbol="ORCL"></iws-stock-price>
+        <iws-stock-finder />
         <stencil-route-link url="/profile/stencil">
           <button>Profile page</button>
         </stencil-route-link>

@@ -3,7 +3,7 @@ import { Component, State, Event, EventEmitter, h } from '@stencil/core';
 import { AV_API_KEY } from '../../global/global';
 
 @Component({
-  tag: 'uc-stock-finder',
+  tag: 'iws-stock-finder',
   styleUrl: './stock-finder.css',
   shadow: true,
 })
@@ -52,6 +52,8 @@ export class StockFinder {
     }
     return [
       <form onSubmit={this.onFindStocks.bind(this)}>
+        <h3>0.1.6</h3>
+        <p>iwswordpress-ionic npm </p>
         <input id="stock-symbol" ref={el => (this.stockNameInput = el)} />
         <button type="submit">Find!</button>
       </form>,
