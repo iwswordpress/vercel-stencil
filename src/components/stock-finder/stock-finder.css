@@ -32,8 +32,8 @@ form button {
 
 form button:hover,
 form button:active {
-  background: var(--color-primary, black);
-  border-color: var(--color-primary, black);
+  background: var(--color-primary-highlight, black);
+  border-color: var(--color-primary-highlight, black);
 }
 
 form button:disabled {
