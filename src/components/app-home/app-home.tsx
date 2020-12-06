@@ -9,7 +9,7 @@ export class AppHome {
   render() {
     return (
       <div class="app-home">
-        <h1>TEST</h1>
+        <h1>TEST WITH WEB COMPONENTS</h1>
         <uc-stock-price stock-symbol="ORCL"></uc-stock-price>
         <uc-stock-finder />
         <stencil-route-link url="/profile/stencil">
