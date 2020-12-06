@@ -9,7 +9,7 @@ export class AppHome {
   render() {
     return (
       <div class="app-home">
-        <h1>TEST WITH WEB COMPONENTS</h1>
+        <h3>SUNDAY EVENING:TEST WITH WEB COMPONENTS</h3>
         <iws-stock-price stock-symbol="ORCL"></iws-stock-price>
         <iws-stock-finder />
         <stencil-route-link url="/profile/stencil">
