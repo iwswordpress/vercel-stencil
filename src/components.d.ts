@@ -14,6 +14,19 @@ export namespace Components {
     }
     interface AppRoot {
     }
+    interface IwsTest {
+        /**
+          * The first name
+         */
+        "app": string;
+    }
+    interface UcSpinner {
+    }
+    interface UcStockFinder {
+    }
+    interface UcStockPrice {
+        "stockSymbol": string;
+    }
 }
 declare global {
     interface HTMLAppHomeElement extends Components.AppHome, HTMLStencilElement {
@@ -34,10 +47,38 @@ declare global {
         prototype: HTMLAppRootElement;
         new (): HTMLAppRootElement;
     };
+    interface HTMLIwsTestElement extends Components.IwsTest, HTMLStencilElement {
+    }
+    var HTMLIwsTestElement: {
+        prototype: HTMLIwsTestElement;
+        new (): HTMLIwsTestElement;
+    };
+    interface HTMLUcSpinnerElement extends Components.UcSpinner, HTMLStencilElement {
+    }
+    var HTMLUcSpinnerElement: {
+        prototype: HTMLUcSpinnerElement;
+        new (): HTMLUcSpinnerElement;
+    };
+    interface HTMLUcStockFinderElement extends Components.UcStockFinder, HTMLStencilElement {
+    }
+    var HTMLUcStockFinderElement: {
+        prototype: HTMLUcStockFinderElement;
+        new (): HTMLUcStockFinderElement;
+    };
+    interface HTMLUcStockPriceElement extends Components.UcStockPrice, HTMLStencilElement {
+    }
+    var HTMLUcStockPriceElement: {
+        prototype: HTMLUcStockPriceElement;
+        new (): HTMLUcStockPriceElement;
+    };
     interface HTMLElementTagNameMap {
         "app-home": HTMLAppHomeElement;
         "app-profile": HTMLAppProfileElement;
         "app-root": HTMLAppRootElement;
+        "iws-test": HTMLIwsTestElement;
+        "uc-spinner": HTMLUcSpinnerElement;
+        "uc-stock-finder": HTMLUcStockFinderElement;
+        "uc-stock-price": HTMLUcStockPriceElement;
     }
 }
 declare namespace LocalJSX {
@@ -48,10 +89,28 @@ declare namespace LocalJSX {
     }
     interface AppRoot {
     }
+    interface IwsTest {
+        /**
+          * The first name
+         */
+        "app"?: string;
+    }
+    interface UcSpinner {
+    }
+    interface UcStockFinder {
+        "onUcSymbolSelected"?: (event: CustomEvent<string>) => void;
+    }
+    interface UcStockPrice {
+        "stockSymbol"?: string;
+    }
     interface IntrinsicElements {
         "app-home": AppHome;
         "app-profile": AppProfile;
         "app-root": AppRoot;
+        "iws-test": IwsTest;
+        "uc-spinner": UcSpinner;
+        "uc-stock-finder": UcStockFinder;
+        "uc-stock-price": UcStockPrice;
     }
 }
 export { LocalJSX as JSX };
@@ -61,6 +120,10 @@ declare module "@stencil/core" {
             "app-home": LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
             "app-profile": LocalJSX.AppProfile & JSXBase.HTMLAttributes<HTMLAppProfileElement>;
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
+            "iws-test": LocalJSX.IwsTest & JSXBase.HTMLAttributes<HTMLIwsTestElement>;
+            "uc-spinner": LocalJSX.UcSpinner & JSXBase.HTMLAttributes<HTMLUcSpinnerElement>;
+            "uc-stock-finder": LocalJSX.UcStockFinder & JSXBase.HTMLAttributes<HTMLUcStockFinderElement>;
+            "uc-stock-price": LocalJSX.UcStockPrice & JSXBase.HTMLAttributes<HTMLUcStockPriceElement>;
         }
     }
 }
