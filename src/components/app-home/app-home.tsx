@@ -10,6 +10,7 @@ export class AppHome {
     return (
       <div class="app-home">
         <h3>SUNDAY EVENING:TEST WITH WEB COMPONENTS</h3>
+        <iws-wordpress></iws-wordpress>
         <iws-stock-price stock-symbol="ORCL"></iws-stock-price>
         <iws-stock-finder />
         <stencil-route-link url="/profile/stencil">
