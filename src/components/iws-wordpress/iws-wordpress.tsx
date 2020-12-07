@@ -43,7 +43,7 @@ export class GetPosts {
   onSelectPost(data: string) {
     this.iwsPostSelected.emit(data);
     const json = JSON.parse(data);
-    this.post = json.content;
+    this.post = `<h2 style='color:orange;font-style:italic'>${json.title}</h2><hr><p>${json.content}</p>`;
   }
 
   render() {
