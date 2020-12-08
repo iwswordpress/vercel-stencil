@@ -9,7 +9,7 @@ export class AppHome {
   render() {
     return (
       <div class="app-home">
-        <h3>Tuesday Dec8th 2020</h3>
+        <h3>Tuesday Dec 8th 2020</h3>
         <iws-wordpress></iws-wordpress>
         <iws-stock-price stock-symbol="ORCL"></iws-stock-price>
         <iws-stock-finder />
