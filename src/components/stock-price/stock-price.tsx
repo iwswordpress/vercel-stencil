@@ -1,10 +1,18 @@
-import { Component, State, Element, Listen, Prop, Watch, h } from '@stencil/core';
+import {
+  Component,
+  State,
+  Element,
+  Listen,
+  Prop,
+  Watch,
+  h,
+} from "@stencil/core";
 
-import { AV_API_KEY } from '../../global/global';
+import { AV_API_KEY } from "../../global/global";
 
 @Component({
-  tag: 'iws-stock-price',
-  styleUrl: './stock-price.css',
+  tag: "iws-stock-price",
+  styleUrl: "./stock-price.css",
   shadow: true,
 })
 export class StockPrice {
@@ -19,9 +27,10 @@ export class StockPrice {
   @State() error: string;
   @State() loading = false;
 
-  @Prop({ mutable: true, reflect: true }) stockSymbol: string;
+  @Prop({ mutable: true, reflect: true }) stocksymbol: string;
+  // if you use stockSymbol then attribute must be stock-symbol
 
-  @Watch('stockSymbol')
+  @Watch("stocksymbol")
   stockSymbolChanged(newValue: string, oldValue: string) {
     if (newValue !== oldValue) {
       this.stockUserInput = newValue;
@@ -29,16 +38,16 @@ export class StockPrice {
     }
   }
 
-  @Listen('ucSymbolSelected', { target: 'body' })
+  @Listen("ucSymbolSelected", { target: "body" })
   onStockSymbolSelected(event: CustomEvent) {
-    console.log('stock symbol selected: ' + event.detail);
-    if (event.detail && event.detail !== this.stockSymbol) {
-      this.stockSymbol = event.detail;
+    console.log("stock symbol selected: " + event.detail);
+    if (event.detail && event.detail !== this.stocksymbol) {
+      this.stocksymbol = event.detail;
     }
   }
   onUserInput(event: Event) {
     this.stockUserInput = (event.target as HTMLInputElement).value;
-    if (this.stockUserInput.trim() !== '') {
+    if (this.stockUserInput.trim() !== "") {
       this.stockInputValid = true;
     } else {
       this.stockInputValid = false;
@@ -47,9 +56,9 @@ export class StockPrice {
 
   onFetchStockPrice(event: Event) {
     event.preventDefault();
-    // const stockSymbol = (this.el.shadowRoot.querySelector('#stock-symbol') as HTMLInputElement).value;
-    this.stockSymbol = this.stockInput.value;
-    // this.fetchStockPrice(stockSymbol);
+    // const stocksymbol = (this.el.shadowRoot.querySelector('#stock-symbol') as HTMLInputElement).value;
+    this.stocksymbol = this.stockInput.value;
+    // this.fetchStockPrice(stocksymbol);
   }
 
   componentWillLoad() {
@@ -59,11 +68,11 @@ export class StockPrice {
 
   componentDidLoad() {
     //console.log('componentDidLoad');
-    if (this.stockSymbol) {
-      // this.initialStockSymbol = this.stockSymbol;
-      this.stockUserInput = this.stockSymbol;
+    if (this.stocksymbol) {
+      // this.initialstocksymbol = this.stocksymbol;
+      this.stockUserInput = this.stocksymbol;
       this.stockInputValid = true;
-      this.fetchStockPrice(this.stockSymbol);
+      this.fetchStockPrice(this.stocksymbol);
     }
   }
 
@@ -80,35 +89,37 @@ export class StockPrice {
   }
 
   disconnectedCallback() {
-    console.log('disconnectedCallback');
+    console.log("disconnectedCallback");
   }
 
-  fetchStockPrice(stockSymbol: string) {
+  fetchStockPrice(stocksymbol: string) {
     this.loading = true;
-    fetch(`https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${stockSymbol}&apikey=${AV_API_KEY}`)
-      .then(res => {
+    fetch(
+      `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${stocksymbol}&apikey=${AV_API_KEY}`
+    )
+      .then((res) => {
         if (res.status !== 200) {
-          throw new Error('Invalid!');
+          throw new Error("Invalid!");
         }
         return res.json();
       })
-      .then(parsedRes => {
-        if (!parsedRes['Global Quote']['05. price']) {
-          throw new Error('Invalid symbol!');
+      .then((parsedRes) => {
+        if (!parsedRes["Global Quote"]["05. price"]) {
+          throw new Error("Invalid symbol!");
         }
         this.error = null;
-        this.fetchedPrice = +parsedRes['Global Quote']['05. price'];
-        console.log(this.stockUserInput + ' is $' + this.fetchedPrice);
+        this.fetchedPrice = +parsedRes["Global Quote"]["05. price"];
+        console.log(this.stockUserInput + " is $" + this.fetchedPrice);
         this.loading = false;
       })
-      .catch(err => {
+      .catch((err) => {
         this.error = err.message;
         this.loading = false;
       });
   }
 
   hostData() {
-    return { class: this.error ? 'error' : '' };
+    return { class: this.error ? "error" : "" };
   }
 
   render() {
@@ -124,9 +135,14 @@ export class StockPrice {
     }
     return [
       <form onSubmit={this.onFetchStockPrice.bind(this)}>
-        <h3>0.1.6</h3>
+        <h3>VERCEL</h3>
         <p>iwswordpress-ionic npm </p>
-        <input id="stock-symbol" ref={el => (this.stockInput = el)} value={this.stockUserInput} onInput={this.onUserInput.bind(this)} />
+        <input
+          id="stock-symbol"
+          ref={(el) => (this.stockInput = el)}
+          value={this.stockUserInput}
+          onInput={this.onUserInput.bind(this)}
+        />
         <button type="submit" disabled={!this.stockInputValid || this.loading}>
           Fetch
         </button>

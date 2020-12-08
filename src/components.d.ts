@@ -17,7 +17,7 @@ export namespace Components {
     interface IwsStockFinder {
     }
     interface IwsStockPrice {
-        "stockSymbol": string;
+        "stocksymbol": string;
     }
     interface IwsTest {
         /**
@@ -102,7 +102,7 @@ declare namespace LocalJSX {
         "onUcSymbolSelected"?: (event: CustomEvent<string>) => void;
     }
     interface IwsStockPrice {
-        "stockSymbol"?: string;
+        "stocksymbol"?: string;
     }
     interface IwsTest {
         /**
