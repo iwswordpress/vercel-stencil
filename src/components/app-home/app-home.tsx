@@ -9,7 +9,7 @@ export class AppHome {
   render() {
     return (
       <div class="app-home">
-        <h3>Tuesday Dec 8th 2020</h3>
+        <h3>vercel-stencil repo 1.0.0</h3>
         <p>
           Uses stocksymbol and thus attribute stocksymbol not stock-symbol when
           stockSymbol used.
