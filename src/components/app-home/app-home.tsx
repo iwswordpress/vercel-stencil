@@ -16,6 +16,9 @@ export class AppHome {
         <stencil-route-link url="/profile/stencil">
           <button>Profile page</button>
         </stencil-route-link>
+        <stencil-route-link url="/ndc/conferences">
+          <button>NDC page</button>
+        </stencil-route-link>
       </div>
     );
   }
