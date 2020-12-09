@@ -15,6 +15,7 @@ export class AppRoot {
               <h1>STENCIL VERCEL</h1>
             </header>
 
+<<<<<<< HEAD
             <main>
               <stencil-router>
                 <stencil-route-switch scrollTopOffset={0}>
@@ -24,6 +25,17 @@ export class AppRoot {
               </stencil-router>
             </main>
           </div>
+=======
+          <main>
+            <stencil-router>
+              <stencil-route-switch scrollTopOffset={0}>
+                <stencil-route url="/" component="app-home" exact={true} />
+                <stencil-route url="/profile/:name" component="app-profile" />
+                <stencil-route url="/ndc/:name" component="app-ndc" />
+              </stencil-route-switch>
+            </stencil-router>
+          </main>
+>>>>>>> RC2
         </div>
       </div>
     );
