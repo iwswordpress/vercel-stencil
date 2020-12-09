@@ -17,7 +17,7 @@ export class AppHome {
         <iws-wordpress></iws-wordpress>
         <iws-stock-price stocksymbol="ORCL"></iws-stock-price>
         <iws-stock-finder />
-        <stencil-route-link url="/profile/stencil">
+        <stencil-route-link url="/profile/test-params">
           <button>Profile page</button>
         </stencil-route-link>
       </div>
